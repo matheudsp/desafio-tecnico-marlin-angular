@@ -1,0 +1,87 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+.contact {
+  text-align: center;
+  margin: $spacing-6 auto;
+  max-width: 100%;
+  padding: 0 $spacing-4;
+  
+  @media (min-width: $breakpoint-sm) {
+    max-width: 28rem;
+    margin: $spacing-10 auto;
+  }
+  
+  &__title {
+    font-size: $font-xl;
+    font-weight: $font-bold;
+    color: $primary;
+    margin-bottom: $spacing-4;
+    
+    @media (min-width: $breakpoint-md) {
+      font-size: $font-2xl;
+      margin-bottom: $spacing-6;
+    }
+  }
+  
+  &__form {
+    @include flex(column);
+    gap: $spacing-3;
+    padding: $spacing-4;
+    background-color: $neutral-lightest;
+    border-radius: $radius-lg;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    
+    @media (min-width: $breakpoint-sm) {
+      gap: $spacing-4;
+      padding: $spacing-6;
+    }
+    
+    @media (min-width: $breakpoint-md) {
+      padding: $spacing-10;
+    }
+    
+    input, textarea {
+      border: 1px solid $neutral-default;
+      padding: $spacing-3;
+      border-radius: $radius-default;
+      width: 100%;
+      
+      &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 2px rgba($primary, 0.2);
+      }
+    }
+    
+    textarea {
+      min-height: 6rem;
+      
+      @media (min-width: $breakpoint-md) {
+        min-height: 8rem;
+      }
+    }
+    
+    &-button {
+      background-color: $primary;
+      color: $neutral-lightest;
+      padding: $spacing-3;
+      border-radius: $radius-full;
+      width: 100%;
+      max-width: 16rem;
+      margin: $spacing-2 auto 0;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-weight: $font-medium;
+      
+      &:hover {
+        background-color: $primary-hover;
+        transform: translateY(-2px);
+      }
+      
+      &:active {
+        transform: translateY(0);
+      }
+    }
+  }
+}

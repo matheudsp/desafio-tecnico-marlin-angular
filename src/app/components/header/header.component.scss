@@ -1,0 +1,118 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.header {
+  background-color: $primary;
+  color: $neutral-lightest;
+  padding: $spacing-4;
+  
+  &__container {
+    @include container;
+    @include flex(row, space-between, center);
+    position: relative;
+  }
+  
+  img {
+    height: 2.5rem;
+    
+    @media (min-width: $breakpoint-md) {
+      height: 3rem;
+    }
+  }
+  
+  &__title {
+    font-size: $font-2xl;
+    font-weight: $font-bold;
+    color: $neutral-lightest;
+  }
+  
+  &__nav {
+    ul {
+      @include flex(row, flex-start, center);
+      gap: $spacing-4;
+      list-style: none;
+    }
+    
+    a {
+      color: $neutral-lightest;
+      transition: color 0.2s ease;
+      
+      &:hover {
+        color: $neutral-light;
+      }
+    }
+    
+    &-button {
+      display: flex;
+      align-items: center;
+      gap: $spacing-1;
+      border: 1px solid $neutral-lightest;
+      padding: $spacing-2 $spacing-4;
+      border-radius: $radius-default;
+      background: transparent;
+      color: $neutral-lightest;
+      cursor: pointer;
+      
+      &:hover {
+        background-color: $neutral-lightest;
+        color: $primary;
+      }
+    }
+    
+    // Mobile menu button
+    &-toggle {
+      display: flex;
+      background: none;
+      border: none;
+      color: $neutral-lightest;
+      font-size: $font-2xl;
+      cursor: pointer;
+      padding: $spacing-2;
+      
+      @media (min-width: $breakpoint-md) {
+        display: none;
+      }
+    }
+    
+    // Mobile menu styles
+    @media (max-width: ($breakpoint-md - 1px)) {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 100%;
+      background-color: $primary;
+      padding: 0;
+      transform: translateY(-100%);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 10;
+      
+      &.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+      }
+      
+      ul {
+        flex-direction: column;
+        width: 100%;
+        padding: $spacing-4;
+        
+        li {
+          width: 100%;
+          text-align: center;
+          padding: $spacing-2 0;
+        }
+      }
+      
+      &-button {
+        margin: $spacing-2 auto;
+      }
+    }
+    
+    @media (min-width: $breakpoint-md) {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<div class="plans">
+  <h2 class="plans__title">Encontre o Plano Odontológico Ideal</h2>
+
+  <div class="plans__filters">
+    <input type="text" [(ngModel)]="search" (input)="onSearch()" placeholder="Buscar plano..."
+      class="plans__filters-search" />
+
+    <select [(ngModel)]="sortOrder" (change)="onSort()" 
+      class="plans__filters-sort">
+      <option value="">Filtrar por preço</option>
+      <option value="asc">Menor preço</option>
+      <option value="desc">Maior preço</option>
+    </select>
+  </div>
+
+  <div class="plans__grid">
+    <div *ngFor="let plano of filteredPlans" class="plans__card">
+      <h3 class="plans__card-title">{{ plano.nome }}</h3>
+      <p class="plans__card-price">R$ {{ plano.valor }}</p>
+      <p class="plans__card-description">{{ plano.descricao }}</p>
+    </div>
+  </div>
+</div>

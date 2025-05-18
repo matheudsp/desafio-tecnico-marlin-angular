@@ -1,0 +1,104 @@
+@import './variables';
+
+// flexbox mixins
+@mixin flex(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $wrap: nowrap
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+}
+
+// container mixin
+@mixin container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+
+  @media (min-width: $breakpoint-lg) {
+    max-width: 1024px;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    max-width: 1280px;
+  }
+}
+
+// grid
+@mixin grid($cols: 1, $gap: $spacing-4) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat($cols, 1fr);
+}
+
+// responsive grid
+@mixin responsive-grid($sm: 1, $md: 2, $lg: 3, $gap: $spacing-4) {
+  display: grid;
+  gap: $gap;
+  grid-template-columns: repeat($sm, 1fr);
+
+  @media (min-width: $breakpoint-sm) {
+    grid-template-columns: repeat($sm, 1fr);
+  }
+
+  @media (min-width: $breakpoint-md) {
+    grid-template-columns: repeat($md, 1fr);
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    grid-template-columns: repeat($lg, 1fr);
+  }
+}
+
+// button
+@mixin button(
+  $bg-color: $primary,
+  $text-color: $neutral-lightest,
+  $hover-color: $primary-hover
+) {
+  display: inline-block;
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $spacing-2 $spacing-4;
+  border-radius: $radius-md;
+  font-weight: $font-medium;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+}
+
+// card
+@mixin card($bg-color: $neutral-lightest, $border: none, $shadow: true) {
+  background-color: $bg-color;
+  border-radius: $radius-lg;
+  padding: $spacing-6;
+
+  @if $border != none {
+    border: $border;
+  }
+
+  @if $shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// responsive text
+@mixin responsive-text($base-size) {
+  font-size: $base-size * 0.875;
+
+  @media (min-width: $breakpoint-md) {
+    font-size: $base-size;
+  }
+}

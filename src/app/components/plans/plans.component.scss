@@ -1,0 +1,121 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+.plans {
+  text-align: center;
+  margin: $spacing-10 0;
+  padding: 0 $spacing-4;
+  
+  &__title {
+    font-size: $font-xl;
+    font-weight: $font-bold;
+    color: $primary;
+    margin-bottom: $spacing-4;
+    
+    @media (min-width: $breakpoint-md) {
+      font-size: $font-2xl;
+    }
+  }
+  
+  &__filters {
+    @include flex(column, center, center);
+    gap: $spacing-2;
+    margin-bottom: $spacing-6;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 $spacing-2;
+    
+    @media (min-width: $breakpoint-sm) {
+      @include flex(row, center, center);
+      flex-wrap: wrap;
+    }
+    
+    &-search {
+      border: 1px solid $neutral-default;
+      padding: $spacing-2;
+      border-radius: $radius-default;
+      width: 100%;
+      max-width: 16rem;
+    }
+    
+    &-sort {
+      border: 1px solid $neutral-default;
+      padding: $spacing-2;
+      border-radius: $radius-default;
+      background-color: $neutral-lightest;
+      width: 100%;
+      max-width: 16rem;
+      
+      @media (min-width: $breakpoint-sm) {
+        width: auto;
+      }
+    }
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: $spacing-4;
+    margin-top: $spacing-6;
+    padding: 0 $spacing-2;
+    
+    @media (min-width: $breakpoint-sm) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-4;
+    }
+    
+    @media (min-width: $breakpoint-md) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-6;
+    }
+    
+    @media (min-width: $breakpoint-lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @media (min-width: $breakpoint-xl) {
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  
+  &__card {
+    border: 2px solid $primary;
+    border-radius: $radius-lg;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: $spacing-4;
+    transition: all 0.3s ease;
+    
+    @media (min-width: $breakpoint-sm) {
+      padding: $spacing-6;
+    }
+    
+    &:hover {
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+      transform: translateY(-5px);
+    }
+    
+    &-title {
+      font-size: $font-lg;
+      font-weight: $font-bold;
+      color: $secondary;
+    }
+    
+    &-price {
+      font-size: $font-xl;
+      font-weight: $font-semibold;
+      margin-top: $spacing-2;
+      color: $primary-dark;
+    }
+    
+    &-description {
+      color: $neutral-dark;
+      margin-top: $spacing-4;
+      font-size: $font-sm;
+      
+      @media (min-width: $breakpoint-md) {
+        font-size: $font-base;
+      }
+    }
+  }
+}

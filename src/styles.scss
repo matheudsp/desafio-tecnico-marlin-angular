@@ -1,0 +1,172 @@
+@import './styles/variables';
+@import './styles/mixins';
+
+// reset styles //avoid browser conflicts
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// default
+html, body {
+  height: 100%;
+  font-family: 'Montserrat', sans-serif;
+  color: $neutral-dark;
+  background-color: $neutral-lightest;
+}
+
+// default
+body {
+  min-height: 100vh;
+}
+
+// typography
+h1, h2, h3, h4, h5, h6 {
+  color: $primary;
+  margin-bottom: $spacing-4;
+}
+
+h1 { font-size: $font-4xl; }
+h2 { font-size: $font-3xl; }
+h3 { font-size: $font-2xl; }
+h4 { font-size: $font-xl; }
+h5 { font-size: $font-lg; }
+h6 { font-size: $font-base; }
+
+p {
+  margin-bottom: $spacing-4;
+}
+
+// link
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  
+  &:hover {
+    color: $primary-hover;
+  }
+}
+
+// form elements
+input, select, textarea {
+  width: 100%;
+  padding: $spacing-3;
+  border: 1px solid $neutral-default;
+  border-radius: $radius-default;
+  margin-bottom: $spacing-4;
+  font-family: inherit;
+  
+  &:focus {
+    outline: none;
+    border-color: $primary;
+  }
+}
+
+button {
+  @include button;
+}
+
+// utility classes
+.container {
+  @include container;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex-col {
+  @include flex(column);
+}
+
+.flex-row {
+  @include flex(row);
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-2 {
+  gap: $spacing-2;
+}
+
+.gap-4 {
+  gap: $spacing-4;
+}
+
+.gap-6 {
+  gap: $spacing-6;
+}
+
+.gap-8 {
+  gap: $spacing-8;
+}
+
+.mt-auto {
+  margin-top: auto;
+}
+
+.my-10 {
+  margin-top: $spacing-10;
+  margin-bottom: $spacing-10;
+}
+
+.mb-2 {
+  margin-bottom: $spacing-2;
+}
+
+.mb-4 {
+  margin-bottom: $spacing-4;
+}
+
+.mb-6 {
+  margin-bottom: $spacing-6;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// colors
+.text-primary {
+  color: $primary;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.text-white {
+  color: $neutral-lightest;
+}
+
+.bg-primary {
+  background-color: $primary;
+}
+
+.bg-secondary {
+  background-color: $secondary;
+}
+
+.bg-light {
+  background-color: $neutral-light;
+}
+
+// responsive classes
+@media (min-width: $breakpoint-md) {
+  .md-flex-row {
+    flex-direction: row;
+  }
+  
+  .md-w-1-2 {
+    width: 50%;
+  }
+}

@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="header__container">
+    <img src="assets/logo-white.png" alt="Marlin Logo" />
+
+    <button class="header__nav-toggle" (click)="toggleMenu()">
+      <ng-icon name="ionMenu"></ng-icon>
+    </button>
+
+    <nav class="header__nav" [class.active]="menuActive">
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#planos">Planos</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li>
+          <button class="header__nav-button">
+            <ng-icon name="heroUserCircleMicro" />
+            Login
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
