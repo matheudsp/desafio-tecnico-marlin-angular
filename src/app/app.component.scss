@@ -1,119 +1,125 @@
-@import '../styles/variables';
-@import '../styles/mixins';
+@import "../styles/variables";
+@import "../styles/mixins";
 
 .main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  
+  // Adiciona um espaçamento no topo para compensar o header fixo
+  padding-top: 4.5rem; // Ajuste conforme a altura do header
+
+  @media (min-width: $breakpoint-md) {
+    padding-top: 5rem; // Ajuste para telas maiores
+  }
+
   &__hero {
     background: linear-gradient(to right, $neutral-lightest, $neutral-light);
     padding: $spacing-6 $spacing-4 0;
     position: relative;
     overflow: hidden;
-    
+
     @media (min-width: $breakpoint-md) {
       padding: $spacing-12 $spacing-4 0;
     }
-    
+
     &-container {
       @include container;
       @include flex(column);
       gap: $spacing-6;
       position: relative;
-      
+
       @media (min-width: $breakpoint-md) {
         flex-direction: row;
         align-items: flex-start;
         gap: $spacing-8;
       }
     }
-    
+
     &-content {
       text-align: center;
       padding-bottom: $spacing-6;
-      
+
       @media (min-width: $breakpoint-md) {
         text-align: left;
         width: 50%;
         padding-bottom: $spacing-12;
       }
-      
+
       &-title {
         font-size: $font-2xl;
         font-weight: $font-bold;
         color: $primary;
         margin-bottom: $spacing-3;
-        
+
         @media (min-width: $breakpoint-md) {
           font-size: $font-4xl;
           margin-bottom: $spacing-4;
         }
       }
-      
+
       &-text {
         font-size: $font-base;
         color: $neutral-dark;
         margin-bottom: $spacing-4;
-        
+
         @media (min-width: $breakpoint-md) {
           font-size: $font-lg;
           margin-bottom: $spacing-6;
         }
       }
-      
+
       &-price {
-        font-size: $font-xl;
-        font-weight: $font-semibold;
+        font-size: $font-base;
+        font-weight: $font-base;
         color: $primary;
         margin-bottom: $spacing-4;
-        
-        span {
+
+        strong {
           font-size: $font-2xl;
           font-weight: $font-bold;
-          
+
           @media (min-width: $breakpoint-md) {
             font-size: $font-3xl;
           }
         }
-        
+
         @media (min-width: $breakpoint-md) {
-          font-size: $font-2xl;
+          font-size: $font-lg;
         }
       }
-      
+
       &-cta {
         @include button($primary, $neutral-lightest, $primary-hover);
         padding: $spacing-2 $spacing-4;
         border-radius: $radius-md;
         display: inline-block;
-        
+
         @media (min-width: $breakpoint-md) {
           padding: $spacing-3 $spacing-6;
         }
       }
     }
-    
+
     &-image {
       display: flex;
       justify-content: center;
       align-self: flex-end;
       margin-bottom: -1px; /* Garante que nao tem margem a baixo */
-      
+
       @media (min-width: $breakpoint-md) {
         width: 50%;
       }
-      
+
       &-container {
         width: 100%;
         max-width: 16rem;
         display: flex;
         align-items: flex-end;
-        
+
         @media (min-width: $breakpoint-md) {
           max-width: 20rem;
         }
-        
+
         img {
           width: 100%;
           display: block;
@@ -121,11 +127,11 @@
       }
     }
   }
-  
+
   &__section {
     padding: $spacing-8 0;
     background-color: $neutral-light;
-    
+
     @media (min-width: $breakpoint-md) {
       padding: $spacing-12 0;
     }
