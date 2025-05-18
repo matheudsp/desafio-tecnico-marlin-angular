@@ -8,30 +8,35 @@
   
   &__hero {
     background: linear-gradient(to right, $neutral-lightest, $neutral-light);
-    padding: $spacing-6 $spacing-4;
+    padding: $spacing-6 $spacing-4 0;
+    position: relative;
+    overflow: hidden;
     
     @media (min-width: $breakpoint-md) {
-      padding: $spacing-12 $spacing-4;
+      padding: $spacing-12 $spacing-4 0;
     }
     
     &-container {
       @include container;
       @include flex(column);
       gap: $spacing-6;
+      position: relative;
       
       @media (min-width: $breakpoint-md) {
         flex-direction: row;
-        align-items: center;
+        align-items: flex-start;
         gap: $spacing-8;
       }
     }
     
     &-content {
       text-align: center;
+      padding-bottom: $spacing-6;
       
       @media (min-width: $breakpoint-md) {
         text-align: left;
         width: 50%;
+        padding-bottom: $spacing-12;
       }
       
       &-title {
@@ -90,21 +95,28 @@
     }
     
     &-image {
+      display: flex;
+      justify-content: center;
+      align-self: flex-end;
+      margin-bottom: -1px; /* Garante que nao tem margem a baixo */
+      
       @media (min-width: $breakpoint-md) {
         width: 50%;
       }
       
       &-container {
-        border-radius: $radius-full;
-        overflow: hidden;
         width: 100%;
         max-width: 16rem;
-        height: 16rem;
-        margin: 0 auto;
+        display: flex;
+        align-items: flex-end;
         
         @media (min-width: $breakpoint-md) {
           max-width: 20rem;
-          height: 20rem;
+        }
+        
+        img {
+          width: 100%;
+          display: block;
         }
       }
     }
