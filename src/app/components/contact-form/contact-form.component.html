@@ -1,10 +1,33 @@
 <div class="contact">
   <h2 class="contact__title">Entre em Contato</h2>
-  <form class="contact__form">
-    <input type="text" placeholder="Nome" />
-    <input type="text" placeholder="Telefone" />
-    <input type="email" placeholder="Email" />
-    <textarea placeholder="Mensagem"></textarea>
+  <form class="contact__form" (ngSubmit)="onSubmit()">
+    <input 
+      type="text" 
+      placeholder="Nome" 
+      name="nome"
+      [(ngModel)]="formData.nome" 
+      required
+    />
+    <input 
+      type="text" 
+      placeholder="Telefone" 
+      name="telefone"
+      [(ngModel)]="formData.telefone" 
+      required
+    />
+    <input 
+      type="email" 
+      placeholder="Email" 
+      name="email"
+      [(ngModel)]="formData.email" 
+      required
+    />
+    <textarea 
+      placeholder="Mensagem" 
+      name="mensagem"
+      [(ngModel)]="formData.mensagem" 
+      required
+    ></textarea>
     <button type="submit" class="contact__form-button">Enviar</button>
   </form>
 </div>
