@@ -43,7 +43,7 @@ a {
   color: $primary;
   text-decoration: none;
   transition: color 0.2s ease;
-  
+  cursor: pointer;
   &:hover {
     color: $primary-hover;
   }
@@ -61,6 +61,7 @@ input, select, textarea {
   &:focus {
     outline: none;
     border-color: $primary;
+    
   }
 }
 

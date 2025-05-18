@@ -7,6 +7,7 @@ import {
   bootstrapLinkedin,
   bootstrapYoutube,
 } from '@ng-icons/bootstrap-icons';
+import { ionArrowUp } from '@ng-icons/ionicons';
 @Component({
   selector: 'app-footer',
   imports: [NgIcon],
@@ -19,6 +20,7 @@ import {
       bootstrapFacebook,
       bootstrapLinkedin,
       bootstrapYoutube,
+      ionArrowUp,
     }),
   ],
 })

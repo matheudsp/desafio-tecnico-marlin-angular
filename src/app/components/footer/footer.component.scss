@@ -1,5 +1,6 @@
-@import "../../../styles/variables";
-@import "../../../styles/mixins";
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
 .footer {
   background-color: $primary;
   color: $neutral-lightest;
@@ -24,13 +25,14 @@
 
   &__info {
     margin-bottom: $spacing-6;
-
+    
     @media (min-width: $breakpoint-md) {
       margin-bottom: 0;
+      margin-right: $spacing-6;
     }
 
     img {
-      height: 3.5rem;
+      max-width: 120px;
       margin-bottom: $spacing-2;
 
       @media (min-width: $breakpoint-md) {
@@ -39,19 +41,42 @@
     }
 
     p {
-      margin-bottom: $spacing-2;
+      margin-bottom: $spacing-1;
       font-size: $font-sm;
 
       @media (min-width: $breakpoint-md) {
         font-size: $font-base;
       }
     }
+
+    &-link {
+      color: $neutral-lightest;
+      text-decoration: underline;
+      margin-bottom: $spacing-1;
+      display: block;
+
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+
+  &__links {
+    @include flex(column, center, center);
+    gap: $spacing-4;
+
+    align-self: center;
+    @media (min-width: $breakpoint-md) {
+      align-items: flex-end;
+    }
   }
 
   &__social {
     @include flex(row, center);
+
     flex-wrap: wrap;
     gap: $spacing-2;
+    margin-bottom: $spacing-4;
 
     @media (min-width: $breakpoint-sm) {
       gap: $spacing-4;
@@ -75,6 +100,50 @@
         color: $secondary;
         transform: translateY(-3px);
       }
+    }
+  }
+
+  &__nav {
+    @include flex(row, center, center);
+    gap: $spacing-4;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @media (min-width: $breakpoint-md) {
+      gap: $spacing-6;
+      justify-content: flex-end;
+    }
+
+    &-link {
+      color: $neutral-lightest;
+      font-weight: $font-medium;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $accent;
+      }
+    }
+  }
+
+  &__top-button {
+    background-image: linear-gradient(rgb(233, 233, 45), rgb(255, 145, 0));
+    padding: $spacing-2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $radius-sm;
+    color: $neutral-light;
+    font-size: $font-lg;
+    transition: transform 0.2s ease;
+    margin-left: $spacing-2;
+
+    @media (min-width: $breakpoint-md) {
+      margin-left: $spacing-4;
+    }
+
+    &:hover {
+      color: $neutral-lightest;
+      transform: translateY(-3px);
     }
   }
 }
