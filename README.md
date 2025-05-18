@@ -1,59 +1,105 @@
-# DesafioTraineeMarlin
+# Desafio Técnico Marlin - Angular 19
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.12.
+Este projeto foi desenvolvido como parte de um desafio técnico de Frontend com foco em Angular. O objetivo foi criar uma **página única (OnePage)** responsiva para exibir **planos odontológicos**, com funcionalidades de **busca**, **filtro** e **integração com uma API REST simulada (JSON local)**.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📸 Layout Base
 
-```bash
-ng serve
-```
+O layout implementado foi baseado na imagem fornecida no desafio:
+![Layout fornecido para desafio](./README/Layout-Teste-Front.png)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Funcionalidades
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- 🔍 Busca de planos odontológicos por nome e ordenação por valor
+- 📡 Consumo de API REST simulada via JSON local
+- 📱 Layout responsivo
+- 🧼 Código modularizado e comentado
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🛠️ Tecnologias Utilizadas
 
-```bash
-ng generate --help
-```
+- ✅ [Angular 19](https://angular.io/)
+- ✅ HTML5 (semântica e boas práticas de SEO)
+- ✅ SCSS (estilização personalizada e responsiva)
+- ✅ TypeScript
+- ✅ JSON local como mock da API REST
+- ✅ [Jest](https://jestjs.io/) para testes unitários
 
-## Building
+---
 
-To build the project run:
+## ▶️ Como Rodar o Projeto
 
-```bash
-ng build
-```
+Siga os passos abaixo para configurar e executar o projeto em seu ambiente de desenvolvimento.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### Instalação
 
-## Running unit tests
+1.  **Clone o repositório:**
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+    ```bash
+    git clone https://github.com/matheudsp/desafio-tecnico-marlin-angular.git
+    ```
 
-```bash
-ng test
-```
+2.  **Navegue até o diretório do projeto:**
 
-## Running end-to-end tests
+    ```bash
+    cd desafio-tecnico-marlin-angular
+    ```
 
-For end-to-end (e2e) testing, run:
+3.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
 
-```bash
-ng e2e
-```
+### Executando a Aplicação
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+1.  **Inicie o servidor de desenvolvimento:**
 
-## Additional Resources
+    ```bash
+    ng serve
+    ```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+    Ou, se preferir especificar a porta e abrir automaticamente no navegador:
+
+    ```bash
+    ng serve -o --port 4200
+    ```
+
+2.  **Acesse no navegador:**
+    Abra seu navegador e vá para `http://localhost:4200/`. A aplicação será recarregada automaticamente se você alterar qualquer um dos arquivos de origem.
+
+---
+
+## 🧪 Rodando os Testes
+
+Este projeto utiliza Jest para testes unitários. Para executar os testes, siga os passos abaixo:
+
+1.  **Execute o comando de teste:**
+    No diretório raiz do projeto, rode o seguinte comando no terminal:
+    ```bash
+    npm run test
+    ```
+    Isso iniciará o executor de testes Jest.
+
+---
+
+## 📸 Imagens
+
+Imagens do projeto desenvolvido:
+
+<p align="center" >
+  <img src="./README/localhost_4200-plans.png" alt="Layout Planos Odontológicos" width="45%"/>
+  <img src="./README/localhost_4200-rickandmorty.png" alt="Layout Rick and Morty API" width="45%"/>
+</p>
+
+---
+
+## 👨‍💻 Autor
+
+**Matheus de Sousa Pereira**
+
+- GitHub: [@matheudsp](https://github.com/matheudsp)
+- LinkedIn: [Matheus Pereira](https://www.linkedin.com/in/matheudsp/)

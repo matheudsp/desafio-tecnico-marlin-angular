@@ -1,23 +1,131 @@
 <div class="plans">
-  <h2 class="plans__title">Encontre o Plano Odontológico Ideal</h2>
-
-  <div class="plans__filters">
-    <input type="text" [(ngModel)]="search" (input)="onSearch()" placeholder="Buscar plano..."
-      class="plans__filters-search" />
-
-    <select [(ngModel)]="sortOrder" (change)="onSort()" 
-      class="plans__filters-sort">
-      <option value="">Filtrar por preço</option>
-      <option value="asc">Menor preço</option>
-      <option value="desc">Maior preço</option>
-    </select>
+  <h2 class="plans__title">
+    Encontre o Plano Odontológico Ideal ou um personagem de Rick and Morty
+  </h2>
+  <!-- ALTERNARDOR: PLANOS OU PERSONAGENS -->
+  <div class="plans__toggle">
+    <button
+      class="plans__toggle-btn"
+      [class.active]="viewMode === 'plans'"
+      (click)="toggleView('plans')"
+    >
+      Planos Odontológicos
+    </button>
+    <button
+      class="plans__toggle-btn"
+      [class.active]="viewMode === 'characters'"
+      (click)="toggleView('characters')"
+    >
+      Rick and Morty
+    </button>
   </div>
 
-  <div class="plans__grid">
-    <div *ngFor="let plano of filteredPlans" class="plans__card">
-      <h3 class="plans__card-title">{{ plano.nome }}</h3>
-      <p class="plans__card-price">R$ {{ plano.valor }}</p>
-      <p class="plans__card-description">{{ plano.descricao }}</p>
+  <!-- ELEMENTO DE PLANOS ODONTO -->
+  <div *ngIf="viewMode === 'plans'" class="plans__content">
+    <div class="plans__filters">
+      <input
+        type="text"
+        [(ngModel)]="search"
+        (input)="onSearch()"
+        placeholder="Buscar plano..."
+        class="plans__filters-search"
+      />
+
+      <select
+        [(ngModel)]="sortOrder"
+        (change)="onSort()"
+        class="plans__filters-sort"
+      >
+        <option value="">Filtrar por preço</option>
+        <option value="asc">Menor preço</option>
+        <option value="desc">Maior preço</option>
+      </select>
+    </div>
+
+    <div class="plans__grid">
+      <div *ngFor="let plano of filteredPlans" class="plans__card">
+        <h3 class="plans__card-title">{{ plano.nome }}</h3>
+        <p class="plans__card-price">R$ {{ plano.valor }}</p>
+        <p class="plans__card-description">{{ plano.descricao }}</p>
+      </div>
+    </div>
+  </div>
+  <!-- ELEMENTO PERSONAGENS -->
+  <div *ngIf="viewMode === 'characters'" class="plans__content">
+    <!-- FILTROS DE PERSONGENS -->
+    <div class="plans__filters">
+      <input
+        type="text"
+        [(ngModel)]="charSearch"
+        (input)="onCharSearch()"
+        placeholder="Buscar personagem..."
+        class="plans__filters-search"
+      />
+
+      <select
+        [(ngModel)]="charSortOrder"
+        (change)="onCharSort()"
+        class="plans__filters-sort"
+      >
+        <option value="">Ordenar por nome</option>
+        <option value="asc">A-Z</option>
+        <option value="desc">Z-A</option>
+      </select>
+    </div>
+
+    <!-- LOADING VIEWER -->
+    <div *ngIf="isLoading" class="plans__loading">
+      <p>Carregando personagens...</p>
+    </div>
+
+    <!-- GRID PERSONAGENS -->
+    <div *ngIf="!isLoading" class="plans__grid plans__grid--characters">
+      <div
+        *ngFor="let character of filteredChars"
+        class="plans__card plans__card--character"
+      >
+        <div class="plans__card-image">
+          <img [src]="character.image" [alt]="character.name" />
+        </div>
+        <div class="plans__card-content">
+          <h3 class="plans__card-title">{{ character.name }}</h3>
+          <p class="plans__card-status">
+            <span
+              class="status-indicator"
+            ></span>
+            {{ character.status }} - {{ character.species }}
+          </p>
+          <div class="plans__card-info">
+            <p class="plans__card-info-label">Origem:</p>
+            <p class="plans__card-info-value">{{ character.origin.name }}</p>
+          </div>
+          <div class="plans__card-info">
+            <p class="plans__card-info-label">Localização:</p>
+            <p class="plans__card-info-value">{{ character.location.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metodos de paginacao -->
+    <div *ngIf="!isLoading && chars.length > 0" class="plans__pagination">
+      <button
+        class="plans__pagination-btn"
+        [disabled]="currentPage === 1"
+        (click)="prevPage()"
+      >
+        Voltar
+      </button>
+      <span class="plans__pagination-info"
+        >Página {{ currentPage }} de {{ totalPages }}</span
+      >
+      <button
+        class="plans__pagination-btn"
+        [disabled]="currentPage === totalPages"
+        (click)="nextPage()"
+      >
+        Próx
+      </button>
     </div>
   </div>
 </div>

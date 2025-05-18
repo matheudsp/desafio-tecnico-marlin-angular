@@ -1,21 +1,53 @@
-@import '../../../styles/variables';
-@import '../../../styles/mixins';
+@import "../../../styles/variables";
+@import "../../../styles/mixins";
+
 .plans {
   text-align: center;
   margin: $spacing-10 0;
   padding: 0 $spacing-4;
-  
+
   &__title {
     font-size: $font-xl;
     font-weight: $font-bold;
     color: $primary;
     margin-bottom: $spacing-4;
-    
+
     @media (min-width: $breakpoint-md) {
       font-size: $font-2xl;
     }
   }
-  
+
+  &__toggle {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-2;
+    margin-bottom: $spacing-6;
+
+    &-btn {
+      padding: $spacing-2 $spacing-4;
+      border-radius: $radius-default;
+      background-color: $neutral-default;
+      color: $neutral-dark;
+      border: none;
+      font-weight: $font-medium;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.active {
+        background-color: $primary;
+        color: $neutral-lightest;
+      }
+
+      &:hover:not(.active) {
+        background-color: darken($neutral-default, 5%);
+      }
+
+      @media (min-width: $breakpoint-md) {
+        padding: $spacing-3 $spacing-6;
+      }
+    }
+  }
+
   &__filters {
     @include flex(column, center, center);
     gap: $spacing-2;
@@ -23,12 +55,12 @@
     width: 100%;
     max-width: 100%;
     padding: 0 $spacing-2;
-    
+
     @media (min-width: $breakpoint-sm) {
       @include flex(row, center, center);
       flex-wrap: wrap;
     }
-    
+
     &-search {
       border: 1px solid $neutral-default;
       padding: $spacing-2;
@@ -36,7 +68,7 @@
       width: 100%;
       max-width: 16rem;
     }
-    
+
     &-sort {
       border: 1px solid $neutral-default;
       padding: $spacing-2;
@@ -44,78 +76,186 @@
       background-color: $neutral-lightest;
       width: 100%;
       max-width: 16rem;
-      
+
       @media (min-width: $breakpoint-sm) {
         width: auto;
       }
     }
   }
-  
+
   &__grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: $spacing-4;
     margin-top: $spacing-6;
     padding: 0 $spacing-2;
-    
+
     @media (min-width: $breakpoint-sm) {
       grid-template-columns: repeat(2, 1fr);
       gap: $spacing-4;
     }
-    
+
     @media (min-width: $breakpoint-md) {
       grid-template-columns: repeat(2, 1fr);
       gap: $spacing-6;
     }
-    
+
     @media (min-width: $breakpoint-lg) {
       grid-template-columns: repeat(3, 1fr);
     }
-    
+
     @media (min-width: $breakpoint-xl) {
       max-width: 1200px;
       margin-left: auto;
       margin-right: auto;
     }
+
+    // For character grid
+    &--characters {
+      @media (min-width: $breakpoint-lg) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
   }
-  
+
   &__card {
     border: 2px solid $primary;
     border-radius: $radius-lg;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: $spacing-4;
     transition: all 0.3s ease;
-    
+    background-color: $neutral-lightest;
+
     @media (min-width: $breakpoint-sm) {
       padding: $spacing-6;
     }
-    
+
     &:hover {
       box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
       transform: translateY(-5px);
     }
-    
+
     &-title {
       font-size: $font-lg;
       font-weight: $font-bold;
       color: $secondary;
     }
-    
+
     &-price {
       font-size: $font-xl;
       font-weight: $font-semibold;
       margin-top: $spacing-2;
       color: $primary-dark;
     }
-    
+
     &-description {
       color: $neutral-dark;
       margin-top: $spacing-4;
       font-size: $font-sm;
-      
+
       @media (min-width: $breakpoint-md) {
         font-size: $font-base;
       }
+    }
+
+    // Character card styles
+    &--character {
+      display: flex;
+      flex-direction: column;
+      padding: $spacing-3;
+      text-align: left;
+      border-color: $secondary;
+
+      @media (min-width: $breakpoint-sm) {
+        padding: $spacing-4;
+      }
+    }
+
+    &-image {
+      margin-bottom: $spacing-2;
+      overflow: hidden;
+      border-radius: $radius-default;
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: $radius-default;
+      }
+    }
+
+    &-content {
+      flex: 1;
+    }
+
+    &-status {
+      display: flex;
+      align-items: center;
+      gap: $spacing-1;
+      margin: $spacing-2 0;
+      font-size: $font-sm;
+    }
+
+    &-info {
+      margin-top: $spacing-2;
+      font-size: $font-sm;
+
+      &-label {
+        color: $neutral-dark;
+        margin-bottom: 0;
+        font-weight: $font-semibold;
+      }
+
+      &-value {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__loading {
+    padding: $spacing-6;
+    text-align: center;
+    font-style: italic;
+    color: $neutral-dark;
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $spacing-4;
+    margin-top: $spacing-6;
+
+    &-btn {
+      @include button($secondary, $neutral-lightest, darken($secondary, 10%));
+      padding: $spacing-2 $spacing-4;
+
+      &:disabled {
+        background-color: $neutral-medium;
+        cursor: not-allowed;
+
+        &:hover {
+          background-color: $neutral-medium;
+        }
+      }
+    }
+
+    &-info {
+      font-size: $font-sm;
+      color: $neutral-dark;
+
+      @media (min-width: $breakpoint-md) {
+        font-size: $font-base;
+      }
+    }
+  }
+
+  &__content {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+
+    &.loading {
+      opacity: 0.7;
     }
   }
 }
