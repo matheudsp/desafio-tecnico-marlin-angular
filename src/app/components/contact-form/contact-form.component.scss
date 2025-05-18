@@ -29,7 +29,7 @@
     padding: $spacing-4;
     background-color: $neutral-lightest;
     border-radius: $radius-lg;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 1px 8px 2px rgba(0,0,0,0.2);
     
     @media (min-width: $breakpoint-sm) {
       gap: $spacing-4;
