@@ -1,17 +1,22 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { Plan } from '../models/plan';
-
+import axios from 'axios';
 @Injectable({
   providedIn: 'root',
 })
 export class PlanService {
-  private url = 'assets/plans.json';
-  
-  constructor(private http: HttpClient) {}
-  
+  private url = 'assets/plans.json'; //caminho local
+
+  constructor() {}
+
   getPlans(): Observable<Plan[]> {
-    return this.http.get<Plan[]>(this.url);
+    // Usando AXIOS para receber os planos
+    // Converte PROMISE para OBSERVABLE c/ operador 'from' 
+    return from(
+      axios
+        .get<Plan[]>(this.url)
+        .then((response: { data: Plan[] }) => response.data)
+    );
   }
 }

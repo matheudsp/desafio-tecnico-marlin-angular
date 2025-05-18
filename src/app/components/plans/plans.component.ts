@@ -9,7 +9,7 @@ import { PlanService } from '../../services/plan.service';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './plans.component.html',
-  styleUrls: ['./plans.component.scss']
+  styleUrls: ['./plans.component.scss'],
 })
 export class PlansComponent implements OnInit {
   plans: Plan[] = [];
@@ -20,9 +20,14 @@ export class PlansComponent implements OnInit {
   constructor(private planService: PlanService) {}
 
   ngOnInit(): void {
-    this.planService.getPlans().subscribe((data) => {
-      this.plans = data;
-      this.filteredPlans = data;
+    this.planService.getPlans().subscribe({
+      next: (data) => {
+        this.plans = data;
+        this.filteredPlans = data;
+      },
+      error: (err) => {
+        console.error('Error ao carregar planos: ', err);
+      },
     });
   }
 
