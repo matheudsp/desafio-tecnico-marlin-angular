@@ -1,19 +1,36 @@
-<header id="header" class="header">
+<header id="header" class="header" role="banner">
   <div class="header__container">
-    <img src="assets/logo-white.png" alt="Marlin Logo" />
+    <a href="#" aria-label="Marlin Odontológico - Página Inicial">
+      <img
+        src="assets/logo-white.png"
+        alt="Marlin Odontológico"
+        width="50"
+        height="50"
+      />
+    </a>
 
-    <button class="header__nav-toggle" (click)="toggleMenu()">
+    <button
+      class="header__nav-toggle"
+      (click)="toggleMenu()"
+      aria-controls="main-menu"
+      aria-label="Menu de navegação"
+    >
       <ng-icon name="ionMenu"></ng-icon>
+      
     </button>
 
-    <nav class="header__nav" [class.active]="menuActive">
+    <nav
+      class="header__nav"
+      [class.active]="menuActive"
+      aria-label="Menu principal"
+    >
       <ul>
         <li><a href="#">Início</a></li>
         <li><a href="#planos">Planos</a></li>
         <li><a href="#contato">Contato</a></li>
         <li>
-          <button class="header__nav-button">
-            <ng-icon name="heroUserCircleMicro" />
+          <button class="header__nav-button" aria-label="Acessar área de login">
+            <ng-icon name="heroUserCircleMicro" aria-hidden="true" />
             Login
           </button>
         </li>

@@ -3,7 +3,11 @@
   <app-header></app-header>
 
   <!-- HERO SECTION -->
-  <section id="inicio" class="main__hero">
+  <section
+    id="inicio"
+    class="main__hero"
+    aria-label="Introdução aos planos odontológicos"
+  >
     <div class="main__hero-container">
       <div class="main__hero-content">
         <h1 class="main__hero-content-title">Marlin Odontológico</h1>
@@ -14,24 +18,32 @@
         <p class="main__hero-content-price">
           A partir de <br /><strong>R$ 30,00</strong>
         </p>
-        <a href="#planos" class="main__hero-content-cta">Ver Planos!</a>
+        <a
+          href="#planos"
+          class="main__hero-content-cta"
+          aria-label="Ver opções de planos odontológicos"
+          >Ver Planos!</a
+        >
       </div>
       <div class="main__hero-image">
         <div class="main__hero-image-container">
           <img
             src="assets/smiling_people.webp"
-            alt="Imagem do banner principal"
+            alt="Pessoas sorrindo com dentes saudáveis"
+            width="200"
+            height="200"
+            loading="eager"
           />
         </div>
       </div>
     </div>
   </section>
   <!-- PLAN VIEWER -->
-  <section id="planos" class="main__section">
+  <section id="planos" class="main__section" aria-label="Planos odontológicos disponíveis">
     <app-plans></app-plans>
   </section>
   <!-- CONTACT FORM -->
-  <section id="contato" class="main__section">
+  <section id="contato" class="main__section"  aria-label="Formulário de contato">
     <app-contact-form></app-contact-form>
   </section>
   <!-- FOOTER -->

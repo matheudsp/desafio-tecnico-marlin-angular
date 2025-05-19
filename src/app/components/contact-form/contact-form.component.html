@@ -1,6 +1,6 @@
 <div class="contact">
   <h2 class="contact__title">Entre em Contato</h2>
-  <form class="contact__form" (ngSubmit)="onSubmit()">
+  <form class="contact__form" (ngSubmit)="onSubmit()"  aria-label="Formulário de contato">
     <input 
       type="text" 
       placeholder="Nome" 
@@ -14,6 +14,7 @@
       name="telefone"
       [(ngModel)]="formData.telefone" 
       required
+      aria-required="true"
     />
     <input 
       type="email" 
@@ -21,12 +22,14 @@
       name="email"
       [(ngModel)]="formData.email" 
       required
+      aria-required="true"
     />
     <textarea 
       placeholder="Mensagem" 
       name="mensagem"
       [(ngModel)]="formData.mensagem" 
       required
+      aria-required="true"
     ></textarea>
     <button type="submit" class="contact__form-button">Enviar</button>
   </form>

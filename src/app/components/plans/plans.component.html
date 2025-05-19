@@ -3,7 +3,7 @@
     Encontre o Plano Odontológico Ideal ou um personagem de Rick and Morty
   </h2>
   <!-- ALTERNARDOR: PLANOS OU PERSONAGENS -->
-  <div class="plans__toggle">
+  <div class="plans__toggle"  role="tablist" aria-label="Alternar visualização">
     <button
       class="plans__toggle-btn"
       [class.active]="viewMode === 'plans'"
@@ -29,12 +29,14 @@
         (input)="onSearch()"
         placeholder="Buscar plano..."
         class="plans__filters-search"
+        aria-label="Buscar plano odontológico"
       />
 
       <select
         [(ngModel)]="sortOrder"
         (change)="onSort()"
         class="plans__filters-sort"
+        aria-label="Ordenar planos por preço"
       >
         <option value="">Filtrar por preço</option>
         <option value="asc">Menor preço</option>
@@ -60,12 +62,14 @@
         (input)="onCharSearch()"
         placeholder="Buscar personagem..."
         class="plans__filters-search"
+        aria-label="Buscar personagem de Rick and Morty"
       />
 
       <select
         [(ngModel)]="charSortOrder"
         (change)="onCharSort()"
         class="plans__filters-sort"
+        aria-label="Ordenar personagens por nome"
       >
         <option value="">Ordenar por nome</option>
         <option value="asc">A-Z</option>
@@ -108,11 +112,12 @@
     </div>
 
     <!-- Metodos de paginacao -->
-    <div *ngIf="!isLoading && chars.length > 0" class="plans__pagination">
+    <div *ngIf="!isLoading && chars.length > 0" class="plans__pagination"  aria-label="Navegação de páginas">
       <button
         class="plans__pagination-btn"
         [disabled]="currentPage === 1"
         (click)="prevPage()"
+        aria-label="Página anterior"
       >
         Voltar
       </button>
@@ -123,6 +128,7 @@
         class="plans__pagination-btn"
         [disabled]="currentPage === totalPages"
         (click)="nextPage()"
+        aria-label="Próxima página"
       >
         Próx
       </button>
